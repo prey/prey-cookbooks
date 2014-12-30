@@ -1,0 +1,9 @@
+default['version'] = '1.4'
+default['arch'] = 'amd64'
+default['filename'] = "go#{node['version']}.linux-#{node['arch']}.tar.gz"
+default['url'] = "http://golang.org/dl/#{node['filename']}"
+default['install_dir'] = '/usr/local'
+default['gopath'] = '/opt/go'
+default['gobin'] = '/opt/go/bin'
+default['owner'] = 'root'
+default['group'] = 'root'
