@@ -1,11 +1,14 @@
 package "git"
+package "libffi-dev"
 
-log "cloning rbenv..."
-git "/home/#{node["user"]}/.rbenv" do
+node.override["user"] = ["_default", "development"].include?(node.chef_environment) ? "vagrant" : "deploy"
+
+log "cloning rbenv... #{node.chef_environment} - #{node["user"]}"
+git "/home/#{node['user']}/.rbenv" do
   repository "https://github.com/sstephenson/rbenv.git"
   revision "master"
   action :checkout
-  user "#{node["user"]}"
+  user "#{node['user']}"
 end
 
 log "cloning ruby-build"
@@ -20,7 +23,7 @@ end
 git "/home/#{node["user"]}/.rbenv/plugins/ruby-build" do
   repository "https://github.com/sstephenson/ruby-build.git"
   revision "master"
-  action :checkout
+  action :sync
   user "#{node["user"]}"
 end
 

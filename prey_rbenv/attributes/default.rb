@@ -1,9 +1,9 @@
-default["user"] = 'deploy'
 default["ruby"]["version"] = [
    '2.1.0',
+   '2.2.0'
 ]
 default["ruby"]["gems"] = [
-    'bundler',
-    'foreman',
+    'bundler'
 ]
-default["options"] = '--disable-install-doc'
+default["options"] = "--disable-install-doc"
+
